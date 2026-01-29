@@ -18,7 +18,7 @@ This project predicts the outcome of football matches using a **Random Forest cl
 ## How to Run
 
 1. Get the data from: https://www.football-data.co.uk/englandm.php
-2. Place your CSV files (`2024_25.csv` and `2025_26.csv`) in the project folder.
+2. Place your CSV files in the data folder.
 3. Run the Python script:
 
 ```bash
