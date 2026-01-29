@@ -1,4 +1,5 @@
 import math
+import os
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
@@ -6,12 +7,14 @@ from sklearn.calibration import CalibratedClassifierCV
 from xgboost import XGBClassifier
 import statsmodels.api as sm
 from itertools import product
-import warnings
 
-warnings.filterwarnings("ignore")
 
 #Load and prep data
-df = pd.concat([pd.read_csv(f) for f in ["2023_24.csv","2024_25.csv","2025_26.csv"]], ignore_index=True)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+files = ["2023_24.csv", "2024_25.csv", "2025_26.csv"]
+paths = [os.path.join(BASE_DIR, "data", f) for f in files]
+
+df = pd.concat([pd.read_csv(p) for p in paths], ignore_index=True)
 df["Date"] = pd.to_datetime(df["Date"], dayfirst=True)
 
 rows = []
